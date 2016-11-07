@@ -1,0 +1,41 @@
+{
+  "name": "tetralytics",
+  "version": "0.1.0",
+  "description": "Data Science platform for Tetra Tech",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tetra-tech/tetralytics.git"
+  },
+  "author": "Ben Grunfeld",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tetra-tech/tetralytics/issues"
+  },
+  "homepage": "https://github.com/tetra-tech/tetralytics#readme",
+  "devDependencies": {
+    "babel-preset-es2015": "~6.9.0",
+    "babel-preset-react": "~6.5.0",
+    "babelify": "~7.3.0",
+    "flux": "~2.1.1",
+    "grunt": "~1.0.1",
+    "grunt-babel": "~6.0.0",
+    "grunt-browserify": "~5.0.0",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-copy": "~1.0.0",
+    "grunt-contrib-watch": "~1.0.0",
+    "grunt-sass": "^1.2.1",
+    "load-grunt-tasks": "~3.5.0",
+    "node-gyp": "^3.4.0",
+    "stats-lite": "^2.0.3"
+  },
+  "dependencies": {
+    "object-assign": "~4.1.0",
+    "react": "~15.1.0",
+    "react-dom": "~15.1.0"
+  }
+}

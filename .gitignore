@@ -1,0 +1,13 @@
+.vagrant
+=======
+.DS_Store
+tmp
+node_modules
+concated.scss
+dist
+*.pyc
+nginx/nginx-proxy-config
+tt_env
+*.vagrant
+bower_components
+npm-debug.log

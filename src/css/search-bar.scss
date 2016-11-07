@@ -1,0 +1,21 @@
+
+input.search-query {
+  display: block;   
+  width: 100%;
+  min-height: 28px;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 10p
+}
+
+input[type="text"] {
+    box-sizing: border-box;
+}
+
+form.form-search:before {
+    display: block;
+    width: 14px;
+    height: 14px;
+    background-position: -48px 0;
+    z-index: 1000;
+}
