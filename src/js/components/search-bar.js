@@ -8,12 +8,14 @@ var AppStore = require('../stores/store');
 
 // React Class
 var SearchBar = React.createClass({
-  getInitialState: function(){
-    var data = {data: 'Button has been clicked'}
-    console.log(data);
-    return data
+  sayHello: function(){
+    console.log('Hello There');
   },
   
+  sayGoodbye: function(msg){
+    console.log(msg);
+  },
+
   render: function(){
     return (
       // navbar
@@ -24,7 +26,9 @@ var SearchBar = React.createClass({
               <form className="form-search form-inline">
                   <input type="text" className="search-query" placeholder="Search..." />
               </form>
-              <button onClick={this.getInitialState} type="submit" className="btn-default btn-primary">Submit</button>
+              <button onClick={this.sayHello} type="submit" className="btn-default btn-primary">Submit</button>
+
+              <button onClick={this.sayGoodbye.bind(this, 'goodbye')} type="submit" className="btn-default btn-danger">Fail</button>
             </div>
           </div>   
         </div>

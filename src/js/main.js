@@ -2,15 +2,11 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 
 // App Components
-var NavBar = require('./components/nav-bar.js');
-var SearchBar = require('./components/search-bar.js');
-var SearchResults = require('./components/search-results.js');
+var TopLevelComponent = require('./components/app.js');
 
 ReactDOM.render(
   <div>  
-    <NavBar />,
-    <SearchBar />,
-    <SearchResults />,
+    <TopLevelComponent />
   </div>,
   document.getElementById('main')
 );

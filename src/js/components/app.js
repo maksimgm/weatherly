@@ -4,18 +4,20 @@ var React = require('react');
 var AppActions = require('../actions/actions');
 var AppStore = require('../stores/store');
 
+
 // App Components
+var NavBar = require('./nav-bar.js');
+var SearchBar = require('./search-bar.js');
+var SearchResults = require('./search-results.js');
 
 // React Class
 var TopLevelComponent = React.createClass({
-  getInitialState: function() {
-    var data = {data: [1, 2, 3]}
-    return data;
-  },
   render: function(){
     return (
       <div className="container-fluid">
-        <h1>{this.state.data}</h1>
+        <NavBar />
+        <SearchBar />
+        <SearchResults />
       </div>
     )
   }
