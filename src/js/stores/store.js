@@ -5,17 +5,6 @@ var EventEmitter = require('events').EventEmitter;
 var AppConstants = require('../constants/constants');
 var assign = require('object-assign');
 
-var _trend_colors = [
-  ["A63494", false],
-  ["98A634", false],
-  ["FE7202", false],
-  ["D3B5E0", false],
-  ["72686D", false],
-  ["8C6A0E", false],
-  ["2C6BA2", false],
-  ["2CA0A2", false]
-];
-
 var _component_data = [];
 
 var _percentiles = {
@@ -45,35 +34,7 @@ var AppStore = assign({}, EventEmitter.prototype, {
       d3.select('.trend' + i).remove();
     }
   },
-  pickColor: function() {
-    // Loop through the _trend_colors object
-    // Find a color that hasn't been used (false), and then mark it as having been used (true)
-    
-    var color;
 
-    for (var i=0; i < _trend_colors.length; i++){
-      // If you're at the end of the array...
-      if (i == _trend_colors.length - 1) {
-        // ...reset everything back to false
-        for (var i=0; i < _trend_colors.length; i++){
-          _trend_colors[i][1] = false;
-        }
-        // ...besides the first color, which you will now use
-        _trend_colors[0][1] = true;
-        color = _trend_colors[0][0];
-        break;
-      }
-      
-      // Check for unused color, then mark it as used
-      if (_trend_colors[i][1] == false){
-        _trend_colors[i][1] = true;
-        color = _trend_colors[i][0];
-        break;
-      }
-    }
-
-    return color;
-  },
   spliceData: function(index, howmany) {
     _component_data.splice(index, howmany);
     this.emitChange(AppConstants.CHANGE_EVENT);
@@ -83,55 +44,7 @@ var AppStore = assign({}, EventEmitter.prototype, {
 
 
   },
-  splitUrlIntoComponents: function(endpoint) {
-    // Splits the URL into it's different components 
-    // and returns those components as named items in an object
 
-    // Split up the endpoint into key val pairs
-    var query_string = endpoint.split("?");
-    var query_params = query_string[1].split("&");
-
-    // Get from DateTime
-    var url_from_dateTime = query_params[0].split("=");
-    var from_dateTime = url_from_dateTime[1];
-
-    // Get to DateTime
-    var url_to_dateTime = query_params[1].split("=");
-    var to_dateTime = url_to_dateTime[1];
-
-    // Get tag name
-    var url_tag_name = query_params[2].split("=");
-    var tag_name = url_tag_name[1];
-
-    // Get was downsampled - false for now, until we decide to implement
-    var url_was_downsample = query_params[3].split("=");
-    var was_downSampled = false;
-
-    // Build the object with contextual data
-    var data_with_contextual_info = {
-      "endpoint": endpoint,
-      "tag_name": tag_name,
-      "from_dateTime": from_dateTime,
-      "to_dateTime": to_dateTime,
-      "was_downSampled": was_downSampled
-    };
-
-    return data_with_contextual_info;
-
-  },
-  buildEndpointFromComponents: function (components){
-    // Build an endpoint with the parameters you want to query
-    var endpoint =  'http://8.34.215.28:8080' + // Change qualifier here
-                    '/bq/display?start=' + 
-                    components['from_dateTime'] + // e.g. 2015-08-08T13:00:00Z
-                    '&end=' + 
-                    components['to_dateTime'] + // e.g. 2015-08-08T13:42:00Z
-                    '&tag=' + //e.g. [SUMMITVILLE_MINE]FLOW_TO_MIXING_TANK_SCL
-                    components['tag_name'] + 
-                    '&buckets=0';
-
-    return endpoint;
-  },
   requestEndpointRefreshAll: function(query_params) {
     // All signals need to be in the same time range, so 
     // we have to resubmit the queries for any signal on the page
@@ -264,8 +177,8 @@ var AppStore = assign({}, EventEmitter.prototype, {
 AppDispatcher.register(function(payload){
   // Filter by actionType
   switch(payload.action.actionType){
-    case 'REQUEST_END_POINT':
-      AppStore.routeRequest(payload.action.data);
+    case 'loadComponentData':
+      AppStore.loadComponentData(payload.action.data);
   }
 });
 

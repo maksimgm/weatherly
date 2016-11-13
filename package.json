@@ -1,21 +1,21 @@
 {
-  "name": "tetralytics",
+  "name": "weatherly",
   "version": "0.1.0",
-  "description": "Data Science platform for Tetra Tech",
+  "description": "data driven weather visualization",
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tetra-tech/tetralytics.git"
+    "url": "git+git@github.com:maksimgm/weatherly.git"
   },
-  "author": "Ben Grunfeld",
+  "author": "Maksim Mamrikov",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/tetra-tech/tetralytics/issues"
+    "url": "https://github.com/maksimgm/weatherly/issues"
   },
-  "homepage": "https://github.com/tetra-tech/tetralytics#readme",
+  "homepage": "https://github.com/maksimgm/weatherly#readme",
   "devDependencies": {
     "babel-preset-es2015": "~6.9.0",
     "babel-preset-react": "~6.5.0",

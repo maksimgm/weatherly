@@ -5,8 +5,6 @@ var ReactDOM = require('react-dom');
 var TopLevelComponent = require('./components/app.js');
 
 ReactDOM.render(
-  <div>  
-    <TopLevelComponent />
-  </div>,
+    <TopLevelComponent />,
   document.getElementById('main')
 );
