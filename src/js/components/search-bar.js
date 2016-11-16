@@ -9,9 +9,9 @@ var AppStore = require('../stores/store');
 // React Class
 var SearchBar = React.createClass({
   sayHello: function(){
-    console.log('Hello There');
+    var endpoint = 'http://api.wunderground.com/api/116a8410f0ee9229/conditions/q/CA/San_Francisco.json';
+    AppActions.requestEndPoint(endpoint);
   },
-  
   sayGoodbye: function(msg){
     console.log(msg);
   },
